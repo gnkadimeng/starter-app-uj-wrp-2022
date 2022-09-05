@@ -12,6 +12,10 @@ const  db = await  sqlite.open({
     driver:  sqlite3.Database
 });
 
+//add above the db migrate command / code 
+
+await db.exec(`PRAGMA foreign_keys = ON;`);
+
 await db.migrate();
 
 const PORT = process.env.PORT || 6003;
