@@ -1,3 +1,5 @@
+import axios from "axios";
+
 document.addEventListener('alpine:init', () => {
     //
 
@@ -14,13 +16,20 @@ document.addEventListener('alpine:init', () => {
             makeSelected(){
                 // alert(this.makeId)
             },
+            cars : [],
             init() {
                 axios
                     .get('/api/makes')
                     .then((result) => {
                         const makes = result.data.makes;
                         this.makes = makes;
-                    })
+                    });
+                axios
+                .get('/api/cars')
+                .then((result) => {
+                    this.cars = result.data.cars;
+                });
+
             }
         }
     });

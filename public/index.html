@@ -79,5 +79,18 @@
             </div>
         </div>
     </div>
+
+    <div>
+        <table class="table">
+            <template x-for ="car in cars">
+                <tr>
+                    <td x-text="car.name"></td>
+                    <td x-text="car.model_name"></td>
+                    <td x-text="car.price"></td>
+                </tr>
+
+            </template>
+        </table>
+    </div>
 </body>
 </html>

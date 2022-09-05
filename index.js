@@ -23,7 +23,13 @@ app.get('/api/makes', async function(req, res) {
     });
 });
 
-
+app.get('/api/cars', async function(req, res){
+    const cars = await db.all(`SELECT * FROM car_make
+    JOIN car_model on car_make.id = car_model.make_id`)
+    res.json({
+        cars
+    })
+})
 app.listen(PORT, function(){
     console.log(`app started on ${PORT}`)
 })
